@@ -11,7 +11,7 @@
 左侧队列 queue1 分别两条消息 msg1、msg2 过期时间都为 1s，输出顺序为 msg1、msg2 是没问题的
 右侧队列 queue2 分别两条消息 msg1、msg2 注意问题来了，msg2 的消息过期时间为 1S 而 msg1 的消息过期为 2S，你可能想谁先过期就谁先消费呗，显然不是这样的，因为这是在同一个队列，必须前一个消费，第二个才能消费，所以就出现了时序问题。
 
-###rabbitmq-delayed-message-exchange 插件延迟队列实现
+### rabbitmq-delayed-message-exchange 插件延迟队列实现
 ```java
 long delayTime = 5000;
 byte[] messageBodyBytes = "delayed payload".getBytes("UTF-8");
